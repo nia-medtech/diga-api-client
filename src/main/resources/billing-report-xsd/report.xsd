@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--This file was copied from https://github.com/itplr-kosit/validator-configuration-xrechnung to use for code generation in this library.-->
-<!--It is licensed under Apache 2.0 license with this copyright notice:-->
-
-<!--KoSIT XML-Validator Configuration for XRechnung-->
-<!--Copyright 2020 Koordinierungsstelle für IT-Standards-->
-
-<!--This product includes software developed by-->
-<!--Coordination Office for IT-Standards (http://www.xoev.de/).-->
-
 <!-- $Id: report.xsd 7617 2017-09-21 12:54:43Z fbuettner $ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rep="http://www.xoev.de/de/validator/varl/1" xmlns:s="http://www.xoev.de/de/validator/framework/1/scenarios" targetNamespace="http://www.xoev.de/de/validator/varl/1" version="1.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:annotation>
@@ -15,7 +6,7 @@
             nachvollziehbar dokumentiert wird.</xs:documentation>
     </xs:annotation>
 
-    <xs:import namespace="http://www.xoev.de/de/validator/framework/1/scenarios" />
+    <xs:import namespace="http://www.xoev.de/de/validator/framework/1/scenarios" schemaLocation="scenarios.xsd"/>
     <xs:element name="report">
         <xs:annotation>
             <xs:documentation>Prüfbericht (das einzige Wurzelelement in diesem Schema)</xs:documentation>
@@ -115,7 +106,7 @@
 
     <xs:complexType name="AssessmentType">
         <xs:sequence>
-            <xs:element name="customLevel" minOccurs="0" maxOccurs="3" type="s:CustomErrorLevel" />
+            <xs:element name="customLevel" minOccurs="0" maxOccurs="unbounded" type="s:CustomErrorLevel" />
             <xs:choice>
                 <xs:annotation>
                     <xs:documentation>Die Empfehlung zum weiteren Umgang mit dem Dokument.</xs:documentation>

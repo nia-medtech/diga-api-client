@@ -21,10 +21,10 @@ package com.alextherapeutics.diga;
 import com.alextherapeutics.diga.implementation.*;
 import com.alextherapeutics.diga.model.*;
 import de.tk.opensource.secon.SeconException;
+import jakarta.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Collections;
-import javax.xml.bind.JAXBException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
@@ -269,7 +269,9 @@ public final class DigaApiClient {
 
   private DigaInvoiceResponse performDigaInvoicingAgainstApi(
       DigaBillingInformation billingInformation, byte[] xmlInvoice, DigaProcessCode processCode)
-      throws DigaEncryptionException, DigaHttpClientException, DigaDecryptionException,
+      throws DigaEncryptionException,
+          DigaHttpClientException,
+          DigaDecryptionException,
           DigaXmlReaderException {
     var encryptionAttempt =
         encryptionFactory

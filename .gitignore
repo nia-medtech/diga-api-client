@@ -6,3 +6,7 @@ target/
 !pom.xml
 **/Main.java
 *.zip
+.classpath
+.factorypath
+.project
+.settings

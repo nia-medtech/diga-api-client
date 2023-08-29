@@ -242,3 +242,14 @@ This project is currently maintained by the developer team at [Alex Therapeutics
 Distributed under the [Apache-2.0](LICENSE) license. Copyright is held by Alex Therapeutics AB and individual contributors.
 
 XML schema files (.xsd) are copied from other repositories and retain their original license and copyright terms. You can find that information and where the files were taken from in the header of each individual file.
+
+
+
+# eclipse
+git clone
+
+import project
+
+project > right click > maven > update project
+
+pom.xml > right click > run as > maven build ... > goals > clean spotless:apply verify

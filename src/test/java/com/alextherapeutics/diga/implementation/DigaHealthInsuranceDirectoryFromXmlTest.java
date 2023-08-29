@@ -26,28 +26,45 @@ import org.junit.jupiter.api.Test;
 
 class DigaHealthInsuranceDirectoryFromXmlTest {
   private static final String sampleInsuranceCompanyMappingXml =
-      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-          + "<n1:Kostentraeger_Mappingverzeichnis xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
-          + "                                     xmlns:n1=\"http://www.gkv-datenaustausch.de/XML-Schema/EDRE0_MVZ/2.0.0\"\n"
-          + "                                     xmlns:bas=\"http://www.gkv-datenaustausch.de/XMLSchema/EDFC0-basis/2.0.0\"\n"
-          + "                                     version=\"002.000.000\" gueltigab=\"2020-07-01\" xsi:schemaLocation=\"\">\n"
-          + "\t\t<n1:Krankenkasseninformation Nummer=\"ID1\">\n"
-          + "\t\t\t\t<bas:Kostentraegerkuerzel>CH</bas:Kostentraegerkuerzel>\n"
-          + "\t\t\t\t<bas:Kostentraegerkennung>109034270</bas:Kostentraegerkennung>\n"
-          + "\t\t\t\t<bas:Name_des_Kostentraegers>BMW BKK   </bas:Name_des_Kostentraegers>\n"
-          + "\t\t\t\t<bas:IK_des_Rechnungsempfaengers>109034270</bas:IK_des_Rechnungsempfaengers>\n"
-          + "\t\t\t\t<bas:IK_Abrechnungsstelle>660500345</bas:IK_Abrechnungsstelle>\n"
-          + "\t\t\t\t<bas:Name_Kommunikationsstelle>DIGA-BITMARCK</bas:Name_Kommunikationsstelle>\n"
-          + "\t\t\t\t<bas:Endpunkt_Kommunikationsstelle>diga.bitmarck-daten.de</bas:Endpunkt_Kommunikationsstelle>\n"
-          + "\t\t\t\t<bas:Versandart>1</bas:Versandart>\n"
-          + "\t\t\t\t<bas:Postalische_Zusaetze>BMW BKK</bas:Postalische_Zusaetze>\n"
-          + "\t\t\t\t<bas:Strasse_Postfach>Mengkofener Str.</bas:Strasse_Postfach>\n"
-          + "\t\t\t\t<bas:Hausnummer_Postfachnummer>6</bas:Hausnummer_Postfachnummer>\n"
-          + "\t\t\t\t<bas:PLZ>84130</bas:PLZ>\n"
-          + "\t\t\t\t<bas:Ort>Dingolfing</bas:Ort>\n"
-          + "\t\t\t\t<bas:Kontaktdaten_Technisch_Telefon>0800-24862725</bas:Kontaktdaten_Technisch_Telefon>\n"
-          + "\t\t\t\t<bas:Kontaktdaten_Technisch_EMail>servicedesk@bitmarck.de</bas:Kontaktdaten_Technisch_EMail>\n"
-          + "\t\t</n1:Krankenkasseninformation></n1:Kostentraeger_Mappingverzeichnis>";
+      """
+          <?xml version="1.0" encoding="UTF-8"?>
+          <n1:Kostentraeger_Mappingverzeichnis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n1="http://www.gkv-datenaustausch.de/XML-Schema/EDRE0_MVZ/3.0" xmlns:bas="http://www.gkv-datenaustausch.de/XMLSchema/EDFC0-basis/3.0" version="003.000.000" gueltigab="2022-08-25" xsi:schemaLocation="http://www.gkv-datenaustausch.de/XML-Schema/EDRE0_MVZ/3.0 EDRE0-MVZ_3.0.0.xsd">
+              <n1:Krankenkasseninformation Nummer="ID1">
+                  <bas:Kostentraegerkuerzel>CH</bas:Kostentraegerkuerzel>
+                  <bas:Kostentraegerkennung>109034277</bas:Kostentraegerkennung>
+                  <bas:Name_des_Kostentraegers>Test BKK</bas:Name_des_Kostentraegers>
+                  <bas:IK_des_Rechnungsempfaengers>009034270</bas:IK_des_Rechnungsempfaengers>
+                  <bas:IK_Abrechnungsstelle>060500345</bas:IK_Abrechnungsstelle>
+                  <bas:Name_Kommunikationsstelle>DIGA-TEST1</bas:Name_Kommunikationsstelle>
+                  <bas:Endpunkt_Kommunikationsstelle>diga.test1-daten.de</bas:Endpunkt_Kommunikationsstelle>
+                  <bas:Versandart>1</bas:Versandart>
+                  <bas:Postalische_Zusaetze>Test BKK</bas:Postalische_Zusaetze>
+                  <bas:Strasse_Postfach>Test Str.</bas:Strasse_Postfach>
+                  <bas:Hausnummer_Postfachnummer>6</bas:Hausnummer_Postfachnummer>
+                  <bas:PLZ>88130</bas:PLZ>
+                  <bas:Ort>Testort</bas:Ort>
+                  <bas:Kontaktdaten_Technisch_Telefon>0000-24862725</bas:Kontaktdaten_Technisch_Telefon>
+                  <bas:Kontaktdaten_Technisch_EMail>servicedesk@test.de</bas:Kontaktdaten_Technisch_EMail>
+              </n1:Krankenkasseninformation>
+              <n1:Krankenkasseninformation Nummer="ID2" gueltig_ab="2021-03-15" gueltig_bis="2022-03-15" nachfolge_kostentraegerkuerzel="CH" insolvenz="N">
+                  <bas:Kostentraegerkuerzel>DH</bas:Kostentraegerkuerzel>
+                  <bas:Kostentraegerkennung>008444448</bas:Kostentraegerkennung>
+                  <bas:Name_des_Kostentraegers>Betriebskrankenkasse</bas:Name_des_Kostentraegers>
+                  <bas:IK_des_Rechnungsempfaengers>108433848</bas:IK_des_Rechnungsempfaengers>
+                  <bas:IK_Abrechnungsstelle>060000345</bas:IK_Abrechnungsstelle>
+                  <bas:Name_Kommunikationsstelle>DIGA-TEST2</bas:Name_Kommunikationsstelle>
+                  <bas:Endpunkt_Kommunikationsstelle>diga.test2-daten.de</bas:Endpunkt_Kommunikationsstelle>
+                  <bas:Versandart>1</bas:Versandart>
+                  <bas:Postalische_Zusaetze>z. Hd. Herrn Mustermann</bas:Postalische_Zusaetze>
+                  <bas:Strasse_Postfach>Teststrasse</bas:Strasse_Postfach>
+                  <bas:Hausnummer_Postfachnummer>35</bas:Hausnummer_Postfachnummer>
+                  <bas:PLZ>80339</bas:PLZ>
+                  <bas:Ort>München</bas:Ort>
+                  <bas:Kontaktdaten_Technisch_Telefon>0000-24862725</bas:Kontaktdaten_Technisch_Telefon>
+                  <bas:Kontaktdaten_Technisch_EMail>servicedesk@test.de</bas:Kontaktdaten_Technisch_EMail>
+              </n1:Krankenkasseninformation>
+          </n1:Kostentraeger_Mappingverzeichnis>
+          """;
 
   @Test
   void createsWithoutError() {
